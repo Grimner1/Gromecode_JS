@@ -1,0 +1,1 @@
+const increaseEvenEl = (arr, delta) => !Array.isArray(arr) ? null : arr.slice().map(i => i % 2 === 0 ? i + delta : i);

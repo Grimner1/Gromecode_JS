@@ -1,0 +1,41 @@
+export const addImage = (imgSrc, callback) => {
+  const imgElem = document.createElement('img');
+  imgElem.setAttribute('alt', 'somePhoto');
+  imgElem.src = imgSrc;
+  const imgContainer = document.querySelector('.page');
+  imgContainer.append(imgElem);
+
+  const onImageLoaded = () => {
+    // const { width, height } = imgElem;
+    callback(null, imgElem);
+  };
+
+  imgElem.addEventListener('load', onImageLoaded);
+
+  imgElem.addEventListener('error', () => callback('Image load is failed'));
+};
+
+const imgSrc =
+  'https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg';
+
+// callack function
+const onImageLoaded = (error, imgElem) => {
+  if (error) {
+    console.log(error);
+    return;
+  }
+  //   console.log(imgElem);
+  const { width, height } = imgElem;
+  //   console.log({ width, height });
+  const sizeElem = document.querySelector('.image-size');
+
+  sizeElem.textContent = `${width} x ${height}`;
+};
+
+// addImage(imgSrc, onImageLoaded);
+
+// examples
+// addImage(
+//   'https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg',
+//   onImageLoaded,
+// );

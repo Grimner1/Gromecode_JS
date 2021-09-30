@@ -1,0 +1,1 @@
+const squareArray = arr => !Array.isArray(arr) ? null : arr.slice().map(i => i * i);

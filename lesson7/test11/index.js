@@ -1,0 +1,1 @@
+const filterNames = (arr, test) => arr.filter(i => i.includes(test)).filter(i => i.length > 5);
